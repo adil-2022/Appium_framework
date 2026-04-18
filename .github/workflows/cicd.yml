@@ -14,7 +14,7 @@ env:
 
   ARTIFACT_NAME_REMOTE: allure-results-android-remote
   ARTIFACT_NAME_CLOUD: allure-results-android-cloud
-  GH_PAGES_URL: https://clark-ewerton.github.io/mobile-test-automation-lab
+  GH_PAGES_URL: https://github.com/adil-2022/Appium_framework
 
 defaults:
   run:
