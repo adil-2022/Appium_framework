@@ -17,7 +17,7 @@
         <parameter name="platform" value="android"/>
         <parameter name="udid" value="emulator-5556"/>
         <parameter name="platformVersion" value="13"/>
-	<parameter name="env" value="local"/>
+	    <parameter name="env" value="local"/>
         <classes>
             <class name="com.clarkewerton.android.CalculatorTest"/>
         </classes>

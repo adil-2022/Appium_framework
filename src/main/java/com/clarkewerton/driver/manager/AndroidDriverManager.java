@@ -77,28 +77,30 @@ public class AndroidDriverManager {
         return new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
     }
 
- private AppiumDriver createCloudDriver(String deviceName, String platformVersion) throws MalformedURLException {
+    private AppiumDriver createCloudDriver(String deviceName, String platformVersion) throws MalformedURLException {
 
-//code below to be used with Sauce Labs
-MutableCapabilities caps = new MutableCapabilities();
-caps.setCapability("platformName", "Android");
-caps.setCapability("appium:app", "storage:filename=googleCalculator.apk");
-caps.setCapability("appium:deviceName", deviceName);
-caps.setCapability("appium:platformVersion", "current_major");
-caps.setCapability("appium:automationName", "UiAutomator2");
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("username", config.lambdaTestUsername());
-sauceOptions.setCapability("accessKey", config.lambdaTestAccessKey());
-sauceOptions.setCapability("build", config.lambdaTestBuild());
-sauceOptions.setCapability("name", config.lambdaTestProject());
-sauceOptions.setCapability("deviceOrientation", "PORTRAIT");
-caps.setCapability("sauce:options", sauceOptions);
+        //code below to be used with Sauce Labs
+        MutableCapabilities caps = new MutableCapabilities();
+        caps.setCapability("platformName", "Android");
+        caps.setCapability("appium:app", "storage:filename=googleCalculator.apk");
+        caps.setCapability("appium:deviceName", deviceName);
+        caps.setCapability("appium:platformVersion", "current_major");
+        caps.setCapability("appium:automationName", "UiAutomator2");
 
-            return new AndroidDriver(
-                    new URL("https://ondemand.us-west-1.saucelabs.com:443/wd/hub"),
-                    caps);
+        MutableCapabilities sauceOptions = new MutableCapabilities();
+        sauceOptions.setCapability("username", config.lambdaTestUsername());
+        sauceOptions.setCapability("accessKey", config.lambdaTestAccessKey());
+        sauceOptions.setCapability("build", config.lambdaTestBuild());
+        sauceOptions.setCapability("name", config.lambdaTestProject());
+        sauceOptions.setCapability("deviceOrientation", "PORTRAIT");
 
-}
+        caps.setCapability("sauce:options", sauceOptions);
+
+        return new AndroidDriver(
+            new URL("https://ondemand.us-west-1.saucelabs.com:443/wd/hub"),
+            caps);
+
+    }
 
     private String getAbsoluteAppPath(String relativePath) {
         return new File(relativePath).getAbsolutePath();
