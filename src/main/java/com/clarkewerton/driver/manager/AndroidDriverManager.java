@@ -97,7 +97,7 @@ public class AndroidDriverManager {
         caps.setCapability("sauce:options", sauceOptions);
 
         return new AndroidDriver(
-            new URL("https://ondemand.us-west-1.saucelabs.com:443/wd/hub"),
+            new URL("https://ondemand.eu-central-1.saucelabs.com:443/wd/hub"),
             caps);
 
     }
